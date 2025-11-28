@@ -1,7 +1,8 @@
 /config/
-/dags/
+# /dags/
 /logs/
 /plugins/
 /venv/
+__pycache__/
 .env
 docker-compose.yaml
