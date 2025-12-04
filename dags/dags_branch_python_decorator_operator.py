@@ -10,7 +10,7 @@ with DAG(
     catchup=False
 ) as dag:
     
-    @task(task_id='python_branch_task')
+    @task.branch(task_id='python_branch_task')
     def select_random():
         import random
         selected_item = random.choice([ 'A', 'B', 'C' ])
