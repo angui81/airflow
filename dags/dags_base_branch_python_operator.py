@@ -8,7 +8,7 @@ with DAG(
     dag_id="dags_base_branch_python_operator",
     schedule="30 6 * * *",
     start_date=pendulum.datetime(
-        2025, 1, 1, tz="Asia/Seoul"
+        2025, 12, 4, tz="Asia/Seoul"
     ),  # tz를 한국 시간에 맞게 설정
     catchup=False,
 ) as dag:
