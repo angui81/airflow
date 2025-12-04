@@ -5,3 +5,5 @@ __pycache__/
 *.yaml
 .env
 *.ipynb
+.vscode
+*.toml
