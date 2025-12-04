@@ -1,8 +1,8 @@
 from airflow import DAG
 import pendulum
 from airflow.sdk import task
-from airflow.providers.standard.operators import BaseBranchOperator
-from airflow.providers.standard.operators import PythonOperator
+from airflow.providers.standard.operators.branch import BaseBranchOperator
+from airflow.providers.standard.operators.python import PythonOperator
 
 with DAG(
     dag_id="dags_base_branch_python_operator",
