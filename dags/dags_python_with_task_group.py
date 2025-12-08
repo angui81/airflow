@@ -9,6 +9,7 @@ with DAG(dag_id="dags_python_with_task_group", schedule="30 6 * * *", start_date
         msg = kwargs.get('msg') or ''
         print(msg)
 
+    @task_group(group_id='first_group')
     def group_1():
         '''task_group 데커레이터를 이용한 첫 번째 그룹입니다.'''
 
