@@ -23,3 +23,5 @@ with DAG(
         allowed_states=['success'],
         failed_states=None,
     )
+
+    start_task >> trigger_dag_task
