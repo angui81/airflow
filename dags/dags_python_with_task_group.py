@@ -30,4 +30,6 @@ with DAG(dag_id="dags_python_with_task_group", schedule="30 6 * * *", start_date
 
         inner_function2 = PythonOperator(task_id='inner_function2', python_callable=inner_func, op_kwargs={'msg': '두번쨰 TaskGroup 내 두번째 Task 입니다.'})
 
+        inner_func1() >> inner_function2
+
     group_1() >> group_2
