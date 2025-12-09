@@ -1,8 +1,7 @@
 from airflow import DAG
 import pendulum
 import requests
-from airflow.sdk import task
-from airflow.models import Variable
+from airflow.sdk import task, Variable
 
 with DAG(dag_id="dags_sample_http_operator", schedule="30 6 * * *", start_date=pendulum.datetime(2025, 12, 3, tz="Asia/Seoul"), catchup=False) as dag:  # tz를 한국 시간에 맞게 설정
 
@@ -24,6 +23,6 @@ with DAG(dag_id="dags_sample_http_operator", schedule="30 6 * * *", start_date=p
         print(response.text)
         print('------------------------------------------------------------------------------------------------')
         print(f'*** status_code : { response.status_code }')
-        print(response.json)
+        print(response.json())
 
     tb_cycle_station_info()
