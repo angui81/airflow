@@ -22,5 +22,8 @@ with DAG(dag_id="dags_sample_http_operator", schedule="30 6 * * *", start_date=p
         print(f'*** url : { url }')
         response = requests.get(url)
         print(response.text)
+        print('------------------------------------------------------------------------------------------------')
+        print(f'*** status_code : { response.status_code }')
+        print(response.json)
 
     tb_cycle_station_info()
