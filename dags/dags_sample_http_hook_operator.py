@@ -3,11 +3,13 @@ import pendulum
 import requests
 from airflow.sdk import task, Variable
 
-with DAG(dag_id="dags_sample_http_operator", schedule="30 6 * * *", start_date=pendulum.datetime(2025, 12, 3, tz="Asia/Seoul"), catchup=False) as dag:  # tz를 한국 시간에 맞게 설정
+with DAG(
+    dag_id="dags_sample_http_hook_operator", schedule="30 6 * * *", start_date=pendulum.datetime(2025, 12, 3, tz="Asia/Seoul"), catchup=False
+) as dag:  # tz를 한국 시간에 맞게 설정
 
     @task(task_id='tb_cycle_station_info')
     def tb_cycle_station_info(**kwargs):
-        import pprint
+        from pprint import pprint
 
         print(kwargs)
         key = Variable.get('apikey_openapi_seoul_go_kr')
