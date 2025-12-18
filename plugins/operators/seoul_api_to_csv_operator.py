@@ -14,7 +14,7 @@ class SeoulApiToCsvOperator(BaseOperator):
         self.http_conn_id = 'pulbic_api'
         self.path = path
         self.file_name = file_name
-        self.endpoint = '{{ var.value.apikey_openapi_seoul_go_kr }}/json' + dataset_nm
+        self.endpoint = '{{ var.value.apikey_openapi_seoul_go_kr }}/json/' + dataset_nm
         self.base_dt = base_dt
         pprint(f'***** self : { self }')
         api_key = Variable.get("apikey_openapi_seoul_go_kr")
