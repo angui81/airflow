@@ -8,13 +8,17 @@ class SeoulApiToCsvOperator(BaseOperator):
     template_fields = ('endpoint', 'path', 'file_name', 'base_dt')
 
     def __init__(self, dataset_nm, path, file_name, base_dt=None, **kwargs):
+        from airflow.models import Variable
+
         super().__init__(**kwargs)
         self.http_conn_id = 'pulbic_api'
         self.path = path
         self.file_name = file_name
-        self.endpoint = '{{ var.value.apikey_openapi_seoul_go_kr}}/json' + dataset_nm
+        self.endpoint = '{{ var.value.apikey_openapi_seoul_go_kr }}/json' + dataset_nm
         self.base_dt = base_dt
         pprint(f'***** self : { self }')
+        api_key = Variable.get("apikey_openapi_seoul_go_kr")
+        pprint(f'***** api_key : { api_key }')
 
     def execute(self, context):
         import os
