@@ -8,7 +8,7 @@ with DAG(dag_id="dags_seoul_api", schedule="30 6 * * *", start_date=pendulum.dat
         task_id='tb_corona19_count_status',
         dataset_nm='TbCorona19CountStatus',
         path='/opt/airflow/files/TbCorona19CountStatus/{{data_interval_end.in_timezone("Asia/seoul") | ds_nodash}}',
-        filename='TbCorona19CountStatus.csv',
+        file_name='TbCorona19CountStatus.csv',
     )
 
     '''서울시 코로나 19 백신 예방접종 현황'''
@@ -16,7 +16,7 @@ with DAG(dag_id="dags_seoul_api", schedule="30 6 * * *", start_date=pendulum.dat
         task_id='tv_corona19_vaccine_stat_new',
         dataset_nm='TvCorona19VaccinestatNew',
         path='/opt/airflow/files/TvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/seoul") | ds_nodash}}',
-        filename='TvCorona19VaccinestatNew.csv',
+        file_name='TvCorona19VaccinestatNew.csv',
     )
 
     tb_corona19_count_status >> tv_corona19_vaccine_stat_new
