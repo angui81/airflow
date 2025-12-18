@@ -1,6 +1,6 @@
 from airflow import DAG
 import pendulum
-from plugins.operators.seoul_api_to_csv_operator import SeoulApiToCsvOperator
+from operators.seoul_api_to_csv_operator import SeoulApiToCsvOperator
 
 with DAG(dag_id="dags_seoul_api", schedule="30 6 * * *", start_date=pendulum.datetime(2025, 12, 3, tz="Asia/Seoul"), catchup=False) as dag:  # tz를 한국 시간에 맞게 설정
     '''서울시 코로나 19 확진자 발생동향'''
