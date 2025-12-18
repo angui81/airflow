@@ -8,7 +8,7 @@ class SeoulApiToCsvOperator(BaseOperator):
     template_fields = ('endpoint', 'path', 'file_name', 'base_dt')
 
     def __init__(self, dataset_nm, path, file_name, base_dt=None, **kwargs):
-        super().__init(**kwargs)
+        super().__init__(**kwargs)
         self.http_conn_id = 'pulbic_api'
         self.path = path
         self.file_name = file_name
